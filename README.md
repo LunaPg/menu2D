@@ -20,6 +20,8 @@ User Story
 - I want to plug my function into my componenent.
 - If my function is missing parameter, menu2d should tell me about
 
-- Bon c'est pas mal la ?
-- Ouep
+
+
+ Bon c'est pas mal la ?
+ Ouep
 
