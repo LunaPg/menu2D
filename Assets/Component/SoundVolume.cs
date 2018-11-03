@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
 public class SoundVolume:MonoBehaviour {
     protected AudioSource soundMixer;
@@ -11,8 +11,10 @@ public class SoundVolume:MonoBehaviour {
     void Start() {
         try {
              AudioSource soundMixer = GetComponent<AudioSource> ( );
+            slider = GameObject.Find ("SoundMixer").GetComponent<Slider> ( );
             soundMixer.volume=slider.value;
             Debug.Log (soundMixer);
+            slider.onValueChanged.AddListener (delegate { onVolumeChange ( ); });
         } catch(Exception e ) {
             Debug.Log ("You need an Audio Source !");
             print (e);
@@ -20,7 +22,7 @@ public class SoundVolume:MonoBehaviour {
 }
 	
 	// Update is called once per frame
-	void Update () {
+	void onVolumeChange () {
         soundMixer.volume=slider.value;
     }
 }
